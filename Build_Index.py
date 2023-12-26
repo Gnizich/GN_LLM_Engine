@@ -52,13 +52,16 @@ def CreateUpdate_Index(basepath, masterdocs, newdocs, indexpath, action, tool ):
     print('index_dir',index_dir)
     is_empty =len(os.listdir(index_dir)) == 0
     print('is empty', is_empty)
-    if is_empty:
-        print('Running creating index function')
-        print(basepath, masterdocs, newdocs, index_dir, tool)
-        Create_Index(basepath, masterdocs, newdocs, index_dir, tool )
-    else:
-        print('Running updating index function')
-        Update_Index(basepath, masterdocs, newdocs, index_dir)
+    # if is_empty:
+    #     print('Running creating index function')
+    #     print(basepath, masterdocs, newdocs, index_dir, tool)
+    #     Create_Index(basepath, masterdocs, newdocs, index_dir, tool )
+    # else:
+    #     print('Running updating index function')
+    #     Update_Index(basepath, masterdocs, newdocs, index_dir)
+    print('Running creating index function')
+    print(basepath, masterdocs, newdocs, index_dir, tool)
+    Create_Index(basepath, masterdocs, newdocs, index_dir, tool )
 
 def Create_Index(basepath: str, masterdocs: str, newdocs: str, indexpath: str, tool: str):
 
@@ -94,6 +97,7 @@ def Update_Index(basepath: str, masterdocs: str, newdocs: str, indexpath: str):
     try:
         is_empty = len(os.listdir(indexpath))
         print('update function is empty', is_empty)
+        print('update indexpath= ', indexpath)
         storage_context = StorageContext.from_defaults(indexpath)
         index = load_index_from_storage(storage_context)
 
@@ -154,15 +158,24 @@ def AskQuestion(topic: str, action: str):
     indexpath = '/home/raspi5/PycharmProjects/GN_LLM_Engine/Indexes/gn' #.//Indexes//' + topic + '//'
     print('indexpath= ', indexpath)
     print(os.listdir(indexpath))
-    storage_context = StorageContext.from_defaults(indexpath)
-    index = load_index_from_storage(storage_context)
+    storage_context = StorageContext.from_defaults(persist_dir=indexpath)
+    #storage_context = StorageContext.from_defaults(indexpath)
+    #index = load_index_from_storage(storage_context)
+
+    #Load index from the storage context
+    new_index = load_index_from_storage(storage_context)
+
+    new_query_engine = new_index.as_query_engine()
 
     while True:
         question = input("Enter question: ")
         if question.lower() == "exit":
             break
-        response = index.query(question)
+        response = new_query_engine.query(question)
         print(response)
+
+        # response = index.query(question)
+        # print(response)
         print("AskQuestion complete")
         return response
 

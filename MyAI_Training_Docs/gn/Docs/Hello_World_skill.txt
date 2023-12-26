@@ -1,0 +1,53 @@
+Porting the Hello World Skill
+This article explains, step-by-step, how the Classic Core Hello World Skill can be ported to the Mark II running Dinkum.
+1. Copy Files Over
+Find skill repository (template is ‘skill-[name]’). In this case: ​
+​.
+Go to the skills directory and make a new directory for your new Skill.
+cd /opt/mycroft-dinkum/skills
+mkdir hello.mark2
+Next to the Dinkum repo, clone the Skill repo.
+cd /opt
+sudo git clone https://github.com/MycroftAI/skill-hello-world.git
+Copy the files from the Skill repo into the new Skill directory.
+cp -r skill-hello-world/* mycroft-dinkum/skills/hello.mark2/
+2. Modify __init__.py
+Modify import statement
+from mycroft import MycroftSkill, intent_handler 
+to:
+from mycroft.skills import MycroftSkill, intent_handler
+Replace interaction calls
+Replace responses such as 
+ self.speak_dialog("welcome") 
+with: 
+ return self.end_session(dialog=dialog, gui=gui)
+For example:
+ # self.speak_dialog("hello.world")
+ dialog = "hello.world"
+ gui = None
+ return self.end_session(dialog=dialog, gui=gui)
+Enhance create_skill
+def create_skill():
+ return HelloWorldSkill()
+becomes:
+def create_skill(skill_id: str):
+     return HelloWorldSkill(skill_id=skill_id)
+Add skill_id and name to __init__ method
+def __init__(self, skill_id: str):
+     """ The __init__ method is called when the Skill is first constructed.
+     It is often used to declare variables or perform setup actions, however
+     it cannot utilise MycroftSkill methods as the class does not yet exist.
+     """
+     super().__init__(skill_id=skill_id, name="HelloSkill")
+     self.learning = True
+3. Add Skill to system files
+To /opt/mycroft-dinkum/services/enclosure/service/skills.json add:
+ { "name": "Hello World Skill", "skill_gid": "hello.mark2" },
+To /etc/systemd/system/dinkum-skills.service add:
+--skill /opt/mycroft-dinkum/skills/hello.mark2
+4. Reload skills service settings
+sudo systemctl daemon-reload
+5. Restart Dinkum skills service
+sudo systemctl restart dinkum-skills.service
+6. Use your new Skill
+ “Hey Mycroft, how are you?”

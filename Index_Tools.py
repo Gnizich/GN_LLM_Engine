@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import tkinter.font as tkFont
+import Build_Index as bi
 
 def on_closing():
     root.destroy()
@@ -8,7 +9,14 @@ def on_closing():
 WINDOW_WIDTH = 1400
 WINDOW_HEIGHT = 800
 
+global topic_dropown
+global action_dropdown
+
+topic_dropdown = None
+action_dropdown = None
 def create_widgets(window):
+    global action_dropdown
+    global topic_dropdown
 
     font_style = ("Arial", 24)
     bigfont = tkFont.Font(family="Helvetica",size=18)
@@ -80,11 +88,13 @@ def create_main_window():
 
     return root
 
-def Submit_Instructions():
+def submit_instructions():
     global action_choice
     global topic_choice
     global topic
     global action
+    global topic_download
+    global action_download
 
     action_choice = action_dropdown.get()
     topic_choice = topic_dropdown.get()
@@ -115,6 +125,9 @@ def Submit_Instructions():
             print('Call ask question function')
     else:
         print("Select is not a valid dropdown choice!")
+
+def Submit_Instructions():
+    submit_instructions()
 
 main_window = create_main_window()
 main_window.mainloop()
