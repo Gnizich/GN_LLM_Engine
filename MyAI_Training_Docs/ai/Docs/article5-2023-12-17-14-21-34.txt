@@ -1,0 +1,25 @@
+What you need to know
+
+Google added new language functionality for Spanish speakers on Gboard and Search.
+
+This includes integrating the Spanish Royal Academy's vocabulary and dictionary on Gboard and Search, respectively, which arms the tools with faster autocorrect and thousands of additional terms.
+
+It's part of Google's ongoing efforts to increase the presence of the Spanish language on its tools, which have already included Smart Compose and Google Docs.
+
+Google is constantly making improvements to its Gboard app. Now, the company is continuing to update the keyboard’s language functionality for Spanish speakers.
+
+The search giant announced in a blog post several new updates that will make it easier to use Spanish in Search and Gboard. These changes are rooted in Google’s involvement with Lengua Española e Inteligencia Artificial — Spanish Language and Artificial Intelligence (LEIA), a project created by the Real Academia Española (RAE) to improve the use of the Spanish language in technological environments.
+
+
+
+“Our commitment to help increase the usage of the Spanish language in the world and a better use of the Spanish language in technological environments is the driving force behind our participation in LEIA. It’s our hope that AI will continue to benefit all Spanish speakers worldwide,” Google said in the announcement.
+
+Among the updates on Gboard, Google plans to integrate the RAE’s Spanish vocabulary into the virtual keyboard. The company explains that thanks to RAE’s vocabulary, which can be used as an added source for GBoard’s AI language models, users can expect faster autocorrections in native Spanish words such as García, Rodríguez, Coruña, Nicaragua, or Jaén, as well as words with an accent, including música, río, frío, and vehículo.
+
+Google adds that hundreds of thousands of new words are being brought to the keyboard app, making the Spanish language on Gboard more robust than before.
+
+(Image credit: Google)
+
+The updates aren’t limited to Gboard, as Search also gained access to the Spanish Language Dictionary of the Royal Academy. This allows users to look up specific meanings behind Spanish words and phrases. Further, as Spanish is considered a broad language with various dialects, Google is striving to ensure that every vernacular is covered, noting that the 23 Spanish language academies around the world make up the Search dictionary.
+
+Collectively, these updates are part of Google’s ongoing commitment to increasing the presence of the Spanish language across its tools. Recently, the tech giant added Spanish grammar suggestions to Smart Compose and Google Docs.

@@ -1,58 +1,84 @@
 import tkinter as tk
 from tkinter import ttk
-#import Build_Index as bi
-import Build_Index2 as bi  #import AskBuild, AskQuestion
+import tkinter.font as tkFont
 
-# Global variable to store the selected action
-action_choice = None
-action_dropdown = None
-topic_choice = None
-topic_dropdown = None
-topic = ""
-action = ""
+def on_closing():
+    root.destroy()
 
-# Function to initialize the main window
+WINDOW_WIDTH = 1400
+WINDOW_HEIGHT = 800
+
+def create_widgets(window):
+
+    font_style = ("Arial", 24)
+    bigfont = tkFont.Font(family="Helvetica",size=18)
+    root.option_add("*TCombobox*Listbox*Font", bigfont)
+    root.option_add("*Font", bigfont)
+
+    window.geometry(f"{WINDOW_WIDTH}x{WINDOW_HEIGHT}")
+
+    style = ttk.Style()
+    style.configure('TCombobox', font=font_style)
+
+    topic_dropdown = ttk.Combobox(window, font=font_style, style='TCombobox')
+    action_dropdown = ttk.Combobox(window, font=font_style, style='TCombobox')
+
+    topic_label = tk.Label(window, text="Topic", font=font_style)
+    topic_label.place(x=20, y=20)
+
+    topic_dropdown = ttk.Combobox(window, style='TCombobox', width=30)
+    topic_dropdown['values'] = ('Select', 'Personal AI', 'AI Tools')
+    topic_dropdown.current(0)
+    topic_dropdown.place(x=300, y=20)
+
+    action_label = tk.Label(window, text="Action", font=font_style)
+    action_label.place(x=750, y=20)
+
+    action_dropdown = ttk.Combobox(window, style='TCombobox', width=30)
+    action_dropdown['values'] = ('Select', 'Build index', 'Ask question')
+    action_dropdown.current(0)
+    action_dropdown.place(x=900, y=20)
+
+    # Create submit button
+    submit_button = tk.Button(text="Go", bg="blue", fg="white", command=Submit_Instructions)
+
+    # Position and size the button
+    submit_button.place(x=150, y=100, width=100, height=30)
+
+
+    question_label = tk.Label(window, text="Question", font=font_style)
+    question_label.place(x=20, y=200)
+
+    question_text = tk.Text(window, height=10, font=font_style)
+    question_text.place(x=20, y=260, width=1300, height=200)
+
+    response_label = tk.Label(window, text="Response", font=font_style)
+    response_label.place(x=20, y=500)
+
+    response_text = tk.Text(window, height=5, font=font_style)
+    response_text.place(x=20, y=560, width=1300, height=200)
 def create_main_window():
-    global action_dropdown  # Declare action_dropdown as global
-    global topic_dropdown  # Declare topic_dropdown as global
 
-    # Create the main window
-    window = tk.Tk()
-    window.title("Python Tkinter Example")
+    global root
 
-    # Create the first row with dropdowns
-    tk.Label(window, text="Topic").grid(row=0, column=0, padx=10, pady=10)
-    topic_options = ["Select","Personal AI", "AI Tools"]
-    topic_dropdown = ttk.Combobox(window, values=topic_options)
-    topic_dropdown.grid(row=0, column=1, padx=10, pady=10)
-    topic_dropdown.set("Select")
+    root = tk.Tk()
+    root.geometry("1500x800")
 
-    tk.Label(window, text="Action").grid(row=0, column=2, padx=10, pady=10)
-    action_options = ["Select", "Ask question", "Build index"]
-    action_dropdown = ttk.Combobox(window, values=action_options)
-    action_dropdown.grid(row=0, column=3, padx=10, pady=10)
-    action_dropdown.set("Select")
+    root.rowconfigure(0, weight=0)
+    root.rowconfigure(1, weight=0)
+    root.rowconfigure(2, weight=1)
+    root.columnconfigure(0, weight=1)
 
-    # Create the second row with buttons
-    btn1 = tk.Button(window, text="Submit Instructions", command = Submit_Instructions)
-    btn1.grid(row=1, column=0, padx=10, pady=10)
+    PADX = 10
+    PADY = 5
 
-    btn2 = tk.Button(window, text="Button 2")
-    btn2.grid(row=1, column=1, padx=10, pady=10)
+    FONT = ("Helvetica", 32)
 
-    btn3 = tk.Button(window, text="Button 3")
-    btn3.grid(row=1, column=2, padx=10, pady=10)
+    create_widgets(root)
 
-    # Create the text boxes
-    tk.Label(window, text="Question").grid(row=2, column=0, columnspan=4)
-    question_text = tk.Text(window, width=70, height=10)
-    question_text.grid(row=3, column=0, columnspan=4, padx=10, pady=10)
+    root.protocol("WM_DELETE_WINDOW", on_closing)
 
-    tk.Label(window, text="Response").grid(row=4, column=0, columnspan=4)
-    response_text = tk.Text(window, width=70, height=10)
-    response_text.grid(row=5, column=0, columnspan=4, padx=10, pady=10)
-
-    return window
+    return root
 
 def Submit_Instructions():
     global action_choice
@@ -90,6 +116,5 @@ def Submit_Instructions():
     else:
         print("Select is not a valid dropdown choice!")
 
-# Create and run the window
 main_window = create_main_window()
 main_window.mainloop()

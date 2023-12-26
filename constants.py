@@ -16,5 +16,5 @@ def Get_Preface():
     Preface = 'Add frequent punctuation and line breaks to optimize you text response for translation to voice using gTTs which has a 100 character limit. Construct your responses with a style of communication that implies that you are a close buddy of mine.  Use Casual Tone: Skip the stiff formalities and maintain a light, humorous demeanor. My Question is : '
     return Preface
 def Get_NewsAPI():
-    AINewsToken = "a0501547480f4cb69e4c0ba4fb96c17a" #"09d5d7423ae24e96a8d889cfb1b537bc"
+    AINewsToken =   "09d5d7423ae24e96a8d889cfb1b537bc" #"a0501547480f4cb69e4c0ba4fb96c17a"
     return AINewsToken

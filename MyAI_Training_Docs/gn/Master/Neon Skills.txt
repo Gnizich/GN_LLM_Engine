@@ -1,0 +1,171 @@
+Neon AI Skills Guide
+Call me Neon. I enable new advanced conversational AI hardware and software for home and business. I am a conversational artificial intelligence assistant, augmented with Neongecko.com code, and Conversation Processing Intelligence technology. I am equipped with many skills to make your life easier, and more fun! 
+
+Voice Assistant Skills
+Alerts⚠️
+
+Set a 5 minute timer
+Set an 8 AM alarm
+Remind me to take out the trash every Friday at 7 PM
+
+CaffeineWiz ☕
+
+Tell me the caffeine content of Pepsi One
+
+ChatGPT
+
+I want to talk to ChatGPT
+Goodbye
+
+Date and Time 📅⏰
+
+What’s the date
+What time is it in Lima Peru
+
+Demo▶️
+
+Show me the demo
+Stop
+
+Jokes😆 
+
+Do you know any Chuck Norris jokes
+Make me laugh
+
+Music🎵
+
+Play jazz
+Play Mozart
+Stop
+
+Speak📢
+
+Repeat 'Good morning, Mike'
+Say 'Goodnight, Gracie'
+
+Spelling📝
+
+How do you spell aardvark
+Spell bureaucracy
+
+Stocks📈
+
+What's the stock / share price for Microsoft
+What is Tesla trading at
+
+Translation🌍
+
+Translate hello to Polish
+How do you say thank you in Ukrainian
+
+Weather🌡️
+
+What's the forecast for tonight
+What is the weather in Seattle
+
+Wikipedia🌐
+
+Check Wikipedia for cats
+Tell me about dogs
+Tell me more
+
+WolframAlpha🚀 Computation and Information 
+
+How far away is the moon
+What is square root of 64
+
+User Settings
+Email Address📧
+
+My email address is…
+Tell me my email address
+
+Language🌍
+
+Change my primary language to Ukrainian
+I will speak to you in Spanish
+Speak to me in French
+
+Location📌
+
+Where am I
+Change my location to Seattle
+
+Personal Information 👤
+
+My name is…
+My birthday is…
+What is my name
+
+Time🕰️
+
+Change my time format to twenty-four hour time
+Change my time format to twelve hour time
+Change my timezone to London
+
+Units📏
+
+Change my units to metric
+Use imperial units
+
+Additional Settings⚙️
+
+Change my wakeword to Mycroft
+Enable audio recordings
+Disable audio recordings
+Permit transcriptions
+Disable transcriptions
+Talk to me faster
+Talk to me normally
+
+ 
+
+Neon System Commands
+About 🛈
+
+How are you
+What can you do
+What is your email address
+When were you born
+Who are you
+Who made you
+
+Data Controls 🗑
+
+Clear my user transcriptions
+Delete my profile
+Erase all pictures
+
+Device Control Center 🔧
+
+Exit
+Restart
+Shut down
+Increase the volume
+
+IP Address🆔
+
+Tell me your IP address
+What’s my IP address
+
+Speed Test 💨 
+
+How fast is my internet
+Run a speed test
+
+Support Helper🆘
+
+Create a support ticket
+Create a troubleshooting package
+
+Updates🔄
+
+Check for updates
+Do you have any updates
+Run updates
+
+Version Control🔃
+
+Enable pre-releases updates
+Switch to stable updates
+What version is install
