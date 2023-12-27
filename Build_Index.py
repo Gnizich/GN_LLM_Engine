@@ -118,26 +118,30 @@ def Update_Index(basepath: str, masterdocs: str, newdocs: str, indexpath: str):
     import openai
     openai.api_key = c.Get_API()
 
-    storage_context = StorageContext.from_defaults(persist_dir=indexpath)
-    index = load_index_from_storage(storage_context)
-    new_docs_dir = os.path.join(basepath, newdocs)
-    llm_predictor =LLMPredictor(llm=openai)
-    max_input_size = 4096
-    num_outputs = 5000
-    max_chunk_overlap = 0.5
-    chunk_size_limit = 3900
-    prompt_helper = PromptHelper(max_input_size, num_outputs, max_chunk_overlap, chunk_size_limit=chunk_size_limit)
+    is_empty =len(os.listdir(newdocs)) == 0
 
-    service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor, prompt_helper=prompt_helper)
+    if not is_empty:
+        storage_context = StorageContext.from_defaults(persist_dir=indexpath)
+        index = load_index_from_storage(storage_context)
+        new_docs_dir = os.path.join(basepath, newdocs)
+        llm_predictor =LLMPredictor(llm=openai)
+        max_input_size = 4096
+        num_outputs = 5000
+        max_chunk_overlap = 0.5
+        chunk_size_limit = 3900
+        prompt_helper = PromptHelper(max_input_size, num_outputs, max_chunk_overlap, chunk_size_limit=chunk_size_limit)
 
-    reader = SimpleDirectoryReader(new_docs_dir)
-    documents = reader.load_data()
-    persist_path = persist_path = os.path.join(basepath, indexpath)
-    for d in documents:
-        index.insert(document = d, service_context = service_context)
-    print(persist_path)
-    storage_context.persist(persist_dir = persist_path)
+        service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor, prompt_helper=prompt_helper)
 
+        reader = SimpleDirectoryReader(new_docs_dir)
+        documents = reader.load_data()
+        persist_path = persist_path = os.path.join(basepath, indexpath)
+        for d in documents:
+            index.insert(document = d, service_context = service_context)
+        print(persist_path)
+        storage_context.persist(persist_dir = persist_path)
+    else:
+        print('no new docs')
 
 
 
@@ -199,4 +203,4 @@ def AskQuestion(topic: str, action: str, question: str):
         print("AskQuestion complete")
         return response
 
-AskBuild('gn', 'build')
+#AskBuild('gn', 'build')

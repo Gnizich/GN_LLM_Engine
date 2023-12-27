@@ -7,8 +7,7 @@ import openai
 #     set OPENAI_API_KEY = "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"
 #     return #API_Key
 def Get_API():
-  os.environ["OPENAI_API_KEY"] = "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"
-
+  os.environ["OPENAI_API_KEY"] = "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"
   return openai.OpenAI(api_key=os.environ["OPENAI_API_KEY"])
 
 api_client = Get_API()

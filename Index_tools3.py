@@ -101,6 +101,7 @@ def submit_instructions():
             bi.AskBuild(topic, action)
             print('Called ask/build function')
         elif action_choice == 'Ask question':
+            bi.AskBuild(topic, 'build')
             question = question_text.get("1.0", tk.END).strip()  # Get question
             response = bi.AskQuestion(topic, action, question)  # Get response from AskQuestion
             response_text.delete("1.0", tk.END)  # Clear response textbox
