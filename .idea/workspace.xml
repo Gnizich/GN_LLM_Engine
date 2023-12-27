@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9929452b-8c5c-496a-ac84-297be7806940" name="Changes" comment="Commit after losing files">
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/6 steps to aging fitness.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Age_Gap.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Basic_Linux_commands.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Buil Neon Skill Part 1.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Build Neon Skill Part 2.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Chores.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Desire.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Filips_Habits.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Hello_World_skill.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Impress.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Lack_of_Interest.txt" afterDir="false" />
+    <list default="true" id="9929452b-8c5c-496a-ac84-297be7806940" name="Changes" comment="Commit after corrections made to lost files">
+      <change afterPath="$PROJECT_DIR$/Index_tools3.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Movie_Preferences.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Movies - protaganist.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Movies_SciFi.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Movies_Techno-thrillers.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Build_index.py" beforeDir="false" afterPath="$PROJECT_DIR$/Build_Index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Index_Tools.py" beforeDir="false" afterPath="$PROJECT_DIR$/Index_Tools.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Build_Index.py" beforeDir="false" afterPath="$PROJECT_DIR$/Build_Index.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Indexes/gn/default__vector_store.json" beforeDir="false" afterPath="$PROJECT_DIR$/Indexes/gn/default__vector_store.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Indexes/gn/docstore.json" beforeDir="false" afterPath="$PROJECT_DIR$/Indexes/gn/docstore.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Indexes/gn/index_store.json" beforeDir="false" afterPath="$PROJECT_DIR$/Indexes/gn/index_store.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/constants.py" beforeDir="false" afterPath="$PROJECT_DIR$/constants.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/6 steps to aging fitness.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Age_Gap.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Basic_Linux_commands.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Buil Neon Skill Part 1.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Build Neon Skill Part 2.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Chores.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Desire.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Filips_Habits.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Hello_World_skill.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Impress.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyAI_Training_Docs/gn/Docs/Lack_of_Interest.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +60,7 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Python&quot;
   }
 }</component>
-  <component name="RunManager" selected="Python.Index_Tools">
+  <component name="RunManager" selected="Python.Build_Index">
     <configuration name="Build_Index" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="GN_LLM_Engine" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -121,10 +124,32 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Index_tools3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="GN_LLM_Engine" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Index_tools3.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Index_Tools" />
         <item itemvalue="Python.Build_Index" />
+        <item itemvalue="Python.Index_tools3" />
+        <item itemvalue="Python.Index_Tools" />
         <item itemvalue="Python.Build_Index" />
       </list>
     </recent_temporary>
@@ -145,7 +170,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703624537761</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Commit after corrections made to lost files">
+      <created>1703630927850</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1703630927850</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,6 +194,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Commit after losing files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commit after losing files" />
+    <MESSAGE value="Commit after corrections made to lost files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Commit after corrections made to lost files" />
   </component>
 </project>

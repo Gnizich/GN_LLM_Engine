@@ -52,16 +52,16 @@ def CreateUpdate_Index(basepath, masterdocs, newdocs, indexpath, action, tool ):
     print('index_dir',index_dir)
     is_empty =len(os.listdir(index_dir)) == 0
     print('is empty', is_empty)
-    # if is_empty:
-    #     print('Running creating index function')
-    #     print(basepath, masterdocs, newdocs, index_dir, tool)
-    #     Create_Index(basepath, masterdocs, newdocs, index_dir, tool )
-    # else:
-    #     print('Running updating index function')
-    #     Update_Index(basepath, masterdocs, newdocs, index_dir)
-    print('Running creating index function')
-    print(basepath, masterdocs, newdocs, index_dir, tool)
-    Create_Index(basepath, masterdocs, newdocs, index_dir, tool )
+    if is_empty:
+        print('Running creating index function')
+        print(basepath, masterdocs, newdocs, index_dir, tool)
+        Create_Index(basepath, masterdocs, newdocs, index_dir, tool )
+    else:
+        print('Running updating index function')
+        Update_Index(basepath, masterdocs, newdocs, index_dir)
+    # print('Running creating index function')
+    # print(basepath, masterdocs, newdocs, index_dir, tool)
+    # Create_Index(basepath, masterdocs, newdocs, index_dir, tool )
 
 def Create_Index(basepath: str, masterdocs: str, newdocs: str, indexpath: str, tool: str):
 
@@ -88,31 +88,59 @@ def Create_Index(basepath: str, masterdocs: str, newdocs: str, indexpath: str, t
 
     print('Index created and saved')
 
+# def Update_Index(basepath: str, masterdocs: str, newdocs: str, indexpath: str):
+#     print("update index reached")
+#     from llama_index import load_index_from_storage, Document
+#     print('update_index indexpath', indexpath)
+#
+#     try:
+#         storage_context = StorageContext.from_defaults(persist_dir=indexpath)
+#         new_index = load_index_from_storage(storage_context)
+#         new_docs_dir = os.path.join(basepath, newdocs)
+#         is_empty = len(os.listdir(newdocs)) == 0
+#         if not is_empty:
+#             for filename in os.listdir(new_docs_dir):
+#                 path = os.path.join(new_docs_dir, filename)
+#                 with open(path) as f:
+#                     # Create document
+#                     text = f.read()
+#                     doc = Document(text, filename)
+#                     new_index.insert(doc)
+#                 storage_context.persist(new_index)
+#         print("Update index completed")
+#     except Exception as e:
+#         print(e)
+
 def Update_Index(basepath: str, masterdocs: str, newdocs: str, indexpath: str):
-    print("update index reached")
-    import os
-    from llama_index import load_index_from_storage
-    print('update_index indexpath', indexpath)
+    # Loading from disk
+    from llama_index import StorageContext, load_index_from_storage
+    from llama_index import PromptHelper, LLMPredictor, ServiceContext
+    import openai
+    openai.api_key = c.Get_API()
 
-    try:
-        is_empty = len(os.listdir(indexpath))
-        print('update function is empty', is_empty)
-        print('update indexpath= ', indexpath)
-        storage_context = StorageContext.from_defaults(indexpath)
-        index = load_index_from_storage(storage_context)
+    storage_context = StorageContext.from_defaults(persist_dir=indexpath)
+    index = load_index_from_storage(storage_context)
+    new_docs_dir = os.path.join(basepath, newdocs)
+    llm_predictor =LLMPredictor(llm=openai)
+    max_input_size = 4096
+    num_outputs = 5000
+    max_chunk_overlap = 0.5
+    chunk_size_limit = 3900
+    prompt_helper = PromptHelper(max_input_size, num_outputs, max_chunk_overlap, chunk_size_limit=chunk_size_limit)
 
-        new_docs_dir = os.path.join(basepath, newdocs)
-        for filename in os.listdir(new_docs_dir):
-            path = os.path.join(new_docs_dir, filename)
-            with open(path) as f:
-                text = f.read()
-            doc = Document(text, filename)
-            index.add_document(doc)
+    service_context = ServiceContext.from_defaults(llm_predictor=llm_predictor, prompt_helper=prompt_helper)
 
-        storage_context.persist(index)
-        print("Update index completed")
-    except Exception as e:
-        print(e)
+    reader = SimpleDirectoryReader(new_docs_dir)
+    documents = reader.load_data()
+    persist_path = persist_path = os.path.join(basepath, indexpath)
+    for d in documents:
+        index.insert(document = d, service_context = service_context)
+    print(persist_path)
+    storage_context.persist(persist_dir = persist_path)
+
+
+
+
 def AskBuild(tool, choice):
     print("AskBuild reached : ", tool, choice)
     if choice == 'build':
@@ -151,31 +179,23 @@ def AskBuild(tool, choice):
         pass
 
 
-def AskQuestion(topic: str, action: str):
+def AskQuestion(topic: str, action: str, question: str):
     from llama_index import load_index_from_storage
     print(topic)
     print("Ask question reached")
-    indexpath = '/home/raspi5/PycharmProjects/GN_LLM_Engine/Indexes/gn' #.//Indexes//' + topic + '//'
+    indexpath = './/Indexes//' + topic + '//'
     print('indexpath= ', indexpath)
     print(os.listdir(indexpath))
     storage_context = StorageContext.from_defaults(persist_dir=indexpath)
-    #storage_context = StorageContext.from_defaults(indexpath)
-    #index = load_index_from_storage(storage_context)
-
-    #Load index from the storage context
     new_index = load_index_from_storage(storage_context)
-
     new_query_engine = new_index.as_query_engine()
 
     while True:
-        question = input("Enter question: ")
         if question.lower() == "exit":
             break
         response = new_query_engine.query(question)
         print(response)
 
-        # response = index.query(question)
-        # print(response)
         print("AskQuestion complete")
         return response
 
